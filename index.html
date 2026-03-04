@@ -5,7 +5,7 @@
   <title>Vorza — Capítulo 2 Season 2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" type="image/png" href="favicon.jpg">
+  <link rel="icon" type="image/png" href="favicon.png">
 
   <style>
     :root {
@@ -26,7 +26,6 @@
       font-family: "Inter", system-ui, sans-serif;
     }
 
-    /* BACKGROUND ANIMADO */
     body {
       background: radial-gradient(circle at 20% 20%, #1e3a8a, #0f172a 40%, #000 80%);
       color: var(--text);
@@ -52,7 +51,6 @@
       to { transform: rotate(360deg); }
     }
 
-    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
@@ -125,7 +123,6 @@
       width: 100%;
     }
 
-    /* BOTÃO HAMBURGUER */
     .hamburger {
       display: none;
       font-size: 28px;
@@ -134,7 +131,6 @@
       user-select: none;
     }
 
-    /* MENU LATERAL (NEON GLASS) */
     .side-menu {
       position: fixed;
       top: 0;
@@ -176,7 +172,6 @@
       margin-bottom: 30px;
     }
 
-    /* BOTÕES */
     .btn {
       padding: 10px 18px;
       border-radius: 999px;
@@ -201,7 +196,6 @@
       box-shadow: 0 0 14px rgba(59,130,246,0.4);
     }
 
-    /* LAYOUT */
     .container {
       max-width: 1200px;
       margin: auto;
@@ -219,7 +213,6 @@
       transform: translateY(0);
     }
 
-    /* HERO */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -248,7 +241,6 @@
       max-width: 480px;
     }
 
-    /* CARD GLASS */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -265,7 +257,6 @@
       border-color: var(--primary);
     }
 
-    /* FEATURES */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -273,7 +264,6 @@
       margin-top: 20px;
     }
 
-    /* FAQ */
     .faq-item {
       background: var(--card);
       border: 1px solid var(--border);
@@ -301,7 +291,6 @@
       max-height: 200px;
     }
 
-    /* FOOTER */
     footer {
       background: rgba(15,23,42,0.7);
       backdrop-filter: blur(20px);
@@ -334,19 +323,41 @@
       <a href="#download">Download</a>
       <a href="#faq">FAQ</a>
       <a href="https://discord.gg/3ZQdhRnZ5b" target="_blank">Discord</a>
+
+      <!-- BOTÃO DONATES -->
+      <a href="/donates"
+         style="
+            padding: 10px 22px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #e5e7eb;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 0 14px rgba(59,130,246,0.45);
+            transition: 0.25s ease;
+            display: inline-block;
+            margin-left: 12px;
+         "
+         onmouseover="this.style.boxShadow='0 0 22px rgba(139,92,246,0.9)'; this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='0 0 14px rgba(59,130,246,0.45)'; this.style.transform='translateY(0)'">
+         💸 DONATES
+      </a>
     </nav>
 
     <div class="hamburger" id="hamburger">≡</div>
   </div>
 </header>
 
-<!-- MENU LATERAL -->
+<!-- MENU LATERAL MOBILE -->
 <div class="side-menu" id="sideMenu">
   <div class="close-btn" id="closeMenu">✕</div>
   <a href="#features">Features</a>
   <a href="#download">Download</a>
   <a href="#faq">FAQ</a>
   <a href="https://discord.gg/3ZQdhRnZ5b" target="_blank">Discord</a>
+  <a href="/donates">💸 DONATES</a>
 </div>
 
 <main class="container">
@@ -422,7 +433,6 @@
 </footer>
 
 <script>
-  // Fade-in
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add("show");
@@ -431,14 +441,12 @@
 
   document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 
-  // FAQ
   document.querySelectorAll(".faq-item").forEach(item => {
     item.addEventListener("click", () => {
       item.classList.toggle("open");
     });
   });
 
-  // MENU LATERAL
   const hamburger = document.getElementById("hamburger");
   const sideMenu = document.getElementById("sideMenu");
   const closeMenu = document.getElementById("closeMenu");
@@ -454,3 +462,4 @@
 
 </body>
 </html>
+
